@@ -24,7 +24,16 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
 }
 
-// Health check endpoint
+// Health check endpoints
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'SpendWise API',
+    version: '1.0.0',
+    documentation: 'https://github.com/Eshanfadil123/spendwise',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
