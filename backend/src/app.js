@@ -38,6 +38,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     service: 'SpendWise API',
+    database: global.mongoStatus || { state: 'unknown' },
     timestamp: new Date().toISOString(),
   });
 });
